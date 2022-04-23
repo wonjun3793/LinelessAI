@@ -6,7 +6,7 @@ WORKDIR /home/
 
 RUN git clone https://github.com/wonjun3793/LinelessAI.git
 
-WORKDIR /home/mysite
+WORKDIR /home/LinelessAI/mysite
 
 RUN pip3 install -r requirements.txt
 
