@@ -1,5 +1,7 @@
 FROM python:3.9.0
 
+RUN echo "testing"
+
 WORKDIR /home/
 
 RUN git clone https://github.com/wonjun3793/LinelessAI.git
