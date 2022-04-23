@@ -6,7 +6,7 @@ RUN git clone https://github.com/wonjun3793/LinelessAI.git
 
 WORKDIR /home/mysite
 
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 RUN echo "SECRET_KEY=django-insecure-77i)m0xyyjke!l2-t#&^c%w=vkqp5x*(sj@ht)t#)ksh&z&i9%" > .env
 
