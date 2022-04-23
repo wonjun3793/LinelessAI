@@ -1,0 +1,44 @@
+.pragmatic_logo {
+    font-family: 'Josefin Slab', serif; 
+    font-size: 32px;
+}
+
+.pragmatic_footer_button{
+    font-size: .9rem;
+}
+
+.pragmatic_footer{
+    text-align:center; margin-top: 2rem;
+}
+
+.pragmatic_header{
+     text-align:center; margin: 2rem;
+}
+
+.pragmatic_right {
+  text-align: right;
+}
+
+@media screen and (max-width:500px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.pragmatic_header_nav {
+    margin: 0 0.9rem;
+}
+
+.table_price {
+    margin-left:auto; 
+    margin-right:auto;
+}

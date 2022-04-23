@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if chart %}
+        <p style="text-align: center;">
+            <img src="data:image/png;base64, {{chart|safe}}">
+        </p>
+    {% endif %}
+
+{% block messages %}
+    {% if messages %}
+        <div class="container" syle="color: firebrick; margin-top: 20px">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+{% endblock content %}

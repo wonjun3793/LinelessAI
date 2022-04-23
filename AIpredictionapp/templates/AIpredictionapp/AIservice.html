@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+
+
+<div class="container card">
+    <div class="row justify-content-center container">
+        <div class="content">
+            <h2>수요예측 서비스를 이용하시려면 PX판매 데이터를 업로드 해주세요!</h2>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %} 
+                    <div class="row content">
+                        <div class="col"> 
+                            <input type="file" name="document" id="document" required="required">
+                            <button id="submit" class ="btn btn-outline-primary">업로드</button>
+                        </div>
+                    </div>
+                </form>
+            <div>
+                {{ object.get_forecastinglen_display }}
+            </div>
+        </div>  
+    </div>
+    
+    {% block messages %}
+        {% if messages %}
+            <div class="container" syle="color: firebrick; margin-top: 20px">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+            </div>
+        {% endif %}
+    {% endblock %}
+</div>
+
+
+
+{% endblock %}

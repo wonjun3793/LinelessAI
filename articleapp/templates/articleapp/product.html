@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 style="text-align: center;">스마트 바구니&nbsp;</h2>
+<p style="text-align: center;">
+</p>
+<p style="text-align: center;"><video controls="controls" width="800" height="400">
+<source src="/static/Lineless_3D_modeling/SB.mp4" type="video/mp4" /></video></p>
+
+<hr>
+<p style="text-align: left;">&nbsp;</p>
+<h2 style="text-align: center;">Lineless_AI Model</h2>
+<table style="margin-left: auto; margin-right: auto;">
+  <tr>
+    <td><img width=500px alt="" src="/static/Lineless_AI_models/LinelessAI_Arima(Sarimax)_model.png" /></td><td><img width=500px alt="" src="/static/Lineless_AI_models/LinelessAI_Informer_model.png" /></td>
+    <td><img width=500px alt="" src="/static/Lineless_AI_models/LinelessAI_LSTM_model.png" /></td> 
+  <tr>
+</table>
+<table style="margin-left: auto; margin-right: auto;">
+  <tr>
+    <td><img width=500px alt="" src="/static/Lineless_AI_models/LinelessAI_NeuralProphet_model.png" /></td><td><img width=500px alt="" src="/static/Lineless_AI_models/LinelessAI_Prophet_model.png" /></td>
+    <td><img width=500px alt="" src="/static/Lineless_AI_models/LinelessAI_Transformer_model.png" /></td> 
+  <tr>
+</table>
+<p style="text-align: left;">&nbsp;</p>
+<ul>
+<li style="text-align: center;">
+<h3><span style="font-weight: 400;">2021에 나온 Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting 최신 논문을 기반으로 한 Lineless_Informer 인공지능 모델 구축(빨간색 테두리)</span></h3>
+</li>
+<li style="text-align: center;" aria-level="1">
+<h3><span style="font-weight: 400;">평균절대비오차(MAPE)를 이용한 인공지능 모델 신뢰성 검사 결과 Lineless_Informer &gt; LSTM &gt; ARIMA(SARIMAX) &gt; Transformer &gt; Prophet &gt; Facebook NeuralProphet 순으로 Lineless의 모델이 가장 좋은 성능을 보임 </span></h3>
+</li>
+</ul>
+
+{% endblock %}
