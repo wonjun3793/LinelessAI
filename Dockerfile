@@ -1,12 +1,12 @@
 FROM python:3.9.0
 
-RUN echo "testing"
+RUN echo "testing123"
 
 WORKDIR /home/
 
 RUN git clone https://github.com/wonjun3793/LinelessAI.git
 
-WORKDIR /home/LinelessAI/mysite
+WORKDIR /home/mysite
 
 RUN pip3 install -r requirements.txt
 
