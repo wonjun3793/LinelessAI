@@ -4,7 +4,7 @@ WORKDIR /home/
 
 RUN git clone https://github.com/wonjun3793/LinelessAI.git
 
-WPRKDIR /home/mysite
+WORKDIR /home/mysite
 
 RUN pip install -r requirements.txt
 
