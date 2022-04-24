@@ -6,6 +6,8 @@ WORKDIR /home/
 
 RUN git clone https://github.com/wonjun3793/LinelessAI.git
 
+RUN pip install --upgrade pip
+
 WORKDIR /home/mysite
 
 RUN pip3 install -r "requirements.txt"
