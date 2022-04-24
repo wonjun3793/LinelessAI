@@ -12,7 +12,7 @@ RUN pip3 install -r requirements.txt
 
 RUN echo "SECRET_KEY=django-insecure-77i)m0xyyjke!l2-t#&^c%w=vkqp5x*(sj@ht)t#)ksh&z&i9%" > .env
 
-RUN python3 manage.py  migrate
+RUN python3 manage.py migrate
 
 EXPOSE 8000
 
