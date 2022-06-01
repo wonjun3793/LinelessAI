@@ -10,7 +10,7 @@ RUN pip install --upgrade pip
 
 WORKDIR /home/mysite
 
-RUN PYTHONPATH=/usr/bin/python pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 RUN echo "SECRET_KEY=django-insecure-77i)m0xyyjke!l2-t#&^c%w=vkqp5x*(sj@ht)t#)ksh&z&i9%" > .env
 

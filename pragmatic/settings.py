@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
@@ -61,6 +62,11 @@ INSTALLED_APPS = [
     'questionapp',
     'sass_processor',
     'AIpredictionapp',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.kakao',
 ]
 
 MIDDLEWARE = [
@@ -135,7 +141,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -148,9 +154,10 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
+LOGIN_REDIRECT_URL = reverse_lazy('articleapp:list')
+# LOGIN_REDIRECT_URL = reverse_lazy('AIpredictionapp:AIservice')
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
-
+ACCOUNT_LOGOUT_ON_GET = True
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -163,3 +170,24 @@ SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
 SASS_OUTPUT_STYLE = 'compact'
 
 CSRF_TRUSTED_ORIGINS = ['https://linelessai-jnsnk.run-asia-northeast1.goorm.io']
+
+AUTHENCITATION_BACKENDS = (
+
+    'django.contrib.auth.backends.ModelBackend',
+    
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
+)
+
+SITE_ID = 1
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_DEFAULT_HTTP_PROTOCOL='https'
+
+
+# Google 클라이언트 ID
+# 965530673265-0al8lvd8c81lblouc86kot2613hii96o.apps.googleusercontent.com
+
+# Google 클라이언트 보안 비밀번호
+# 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

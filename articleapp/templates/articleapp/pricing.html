@@ -1,99 +1,152 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<table ctyle="border-collapse: collapse; width: 500px; height: 198px; text-align: center;" border="1" class="table_price">
-<tbody>
-<tr>
-    <td style="width: 500px; height: 18px; text-align: center;" colspan="2"><h5 style="text-align: center;"><strong>서비스 이용 수수료</strong></h5></td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 300px; height: 18px; text-align: center;"><strong>상품 금액</strong></td>
-<td style="width: 200px; height: 18px; text-align: center;"><strong>수수료</strong></td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 300px; height: 18px; text-align: center;"><strong>1,000원 미만</strong></td>
-<td style="width: 200px; height: 18px; text-align: center;"><strong>4%</strong></td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 300px; height: 18px; text-align: center;"><strong>1,000원 이상 ~ 1,333원 미만</strong></td>
-<td style="width: 200px; height: 18px; text-align: center;"><strong>40원</strong></td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 300px; height: 18px; text-align: center;"><strong>1,333원 이상 ~ 5,000원 미만</strong></td>
-<td style="width: 200px; height: 18px; text-align: center;"><strong>3%</strong></td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 300px; height: 18px; text-align: center;"><strong>5,000원 이상 ~ 6,522원 미만</strong></td>
-<td style="width: 200px; height: 18px; text-align: center;"><strong>150원</strong></td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 300px; height: 18px; text-align: center;"><strong>6,522원 이상 ~ 10,000원 미만</strong></td>
-<td style="width: 200px; height: 18px; text-align: center;"><strong>2.3%</strong></td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 300px; height: 18px; text-align: center;"><strong>10,000원 이상 ~ 11,500원 미만</strong></td>
-<td style="width: 200px; height: 18px; text-align: center;"><strong>230원</strong></td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 300px; height: 18px text-align: center;"><strong>11,500원 이상 ~ 20,000원 미만</strong></td>
-<td style="width: 200px; height: 18px; text-align: center;"><strong>2%</strong></td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 300px; height: 18px; text-align: center;"><strong>20,000원 이상 ~ 26,666원 미만</strong></td>
-<td style="width: 200px; height: 18px; text-align: center;"><strong>400원</strong></td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 300px; height: 18px; text-align: center;"><strong>26,666원 이상 ~ 50,000원 미만</strong></td>
-<td style="width: 200px; height: 18px; text-align: center;"><strong>1.5%</strong></td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 300px; height: 18px; text-align: center;"><strong>50,000원 이상</strong></td>
-<td style="width: 200px height: 18px; text-align: center;"><strong>500원</strong></td>
-</tr>
-</tbody>
-</table>
-<p>&nbsp;</p>
-<table style="border-collapse: collapse; width: 500px; text-align: center;" border="1" class="table_price">
-<tbody>
-<tr>
-    <td style="width: 500px; height: 18px; text-align: center;" colspan="2"><h5 style="text-align: center;"><strong>스마트 바구니 구독료</strong></h5></td>
-</tr>
-<tr>
-<td style="width: 300px; text-align: center;"><strong>바구니 수&nbsp;</strong></td>
-<td style="width: 200px; text-align: center;"><strong>한달 가격</strong></td>
-</tr>
-<tr>
-<td style="width: 300px; t200px-align: center;"><strong>10개</strong></td>
-<td style="width: 200px; text-align: center;"><strong>120,000원</strong></td>
-</tr>
-<tr>
-<td style="width: 300px; text-align: center;"><strong>15개</strong></td>
-<td style="width: 200px; text-align: center;"><strong>165,000원</strong></td>
-</tr>
-<tr>
-<td style="width: 300px; text-align: center;"><strong>20개</strong></td>
-<td style="width: 200px; text-align: center;"><strong>200,000원</strong></td>
-</tr>
-</tbody>
-</table>
-<p>&nbsp;</p>
-<table style="border-collapse: collapse; width: 500px;height: 72px;" border="1" class="table_price">
-<tbody>
-<tr>
-    <td style="width: 500px; height:auto; text-align: center;" colspan="2"><h5 style="text-align: center;"><strong>AI 재고 관리 서비스</strong></h5></td>
-</tr>
-<tr>
-<td style="width: 300px; height: 18px; text-align: center;"><strong>상품 종류&nbsp;</strong></td>
-<td style="width: 200px; height: 18px; text-align: center;"><strong>한달 가격&nbsp;</strong></td>
-</tr>
-<tr>
-<td style="width: 300px; height: 18px; text-align: center;"><strong>AI 수요 예측 서비스&nbsp;</strong></td>
-<td style="width: 200px; height: 18px; text-align: center;"><strong>150,000원</strong></td>
-</tr>
-</tbody>
-</table>
+<html>
+  <body>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check" viewBox="0 0 16 16">
+    <title>Check</title>
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+</svg>
+
+<div class="container py-3">
+  <header>
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal">Pricing</h1>
+      <p class="fs-5 text-muted">Lineless의 스마트바구니로 스마트 무인PX를 운영해보세요! 모든 서비스들을 첫한달간 무료로 체험해보실 수 있습니다.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Basic</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">₩150,000<small class="text-muted fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>스마트바구니 10개 제공</li>
+              <li>무료 상담 제공</li>
+            </ul>
+            {% if not user.is_authenticated %}
+            <a href="{% url 'accountapp:login' %}?next={{ request.path }}"><button type="button" onclick="location.href='accountapp:login';" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button></a>
+            {% else %}
+            <a href="{% url 'articleapp:checkout' %}"><button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button></a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Pro</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">₩300,000<small class="text-muted fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>스마트바구니 15개 제공</li>
+              <li>10개 제품에 대한 AI수요예측 서비스 제공</li>
+              <li>무료 상담 제공</li>
+              <li>온라인 PX컨설팅 서비스 제공</li>
+              <li>자동 물품 발주 서비스 제공</li>
+            </ul>
+            {% if not user.is_authenticated %}
+            <a href="{% url 'accountapp:login' %}?next={{ request.path }}"><button type="button" class="w-100 btn btn-lg btn-primary">Get started</button></a>
+            {% else %}
+            <a href="{% url 'articleapp:checkout' %}"><button type="button" class="w-100 btn btn-lg btn-primary">Get started</button></a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3 text-white bg-primary border-primary">
+            <h4 class="my-0 fw-normal">Enterprise</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">₩400,000<small class="text-muted fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>스마트바구니 20개 제공</li>
+              <li>20개 제품에 대한 AI수요예측 서비스 제공</li>
+              <li>무료 상담 제공</li>
+              <li>온라인 PX컨설팅 서비스 제공</li>
+              <li>자동 물품 발주 서비스 제공</li>
+              <li>AI 도난방지 서비스 제공</li>
+            </ul>
+            {% if not user.is_authenticated %}
+            <a href="{% url 'accountapp:login' %}?next={{ request.path }}"><button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button></a>
+            {% else %}
+            <a href="{% url 'articleapp:checkout' %}"><button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button></a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="display-6 text-center mb-4">Compare plans</h2>
+
+    <div class="table-responsive">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th style="width: 34%;"></th>
+            <th style="width: 22%;">Basic</th>
+            <th style="width: 22%;">Pro</th>
+            <th style="width: 22%;">Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="text-start">스마트바구니 제공</th>
+            <td>10개</td>
+            <td>15개</td>
+            <td>20개</td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">AI 수요예측 서비스 제공 (차등 제공)</th>
+            <td></td>
+            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="row" class="text-start">무료 상담 제공</th>
+            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">온라인 PX 컨설팅 제공</th>
+            <td></td>
+            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">자동 물품 발주 서비스 제공</th>
+            <td></td>
+            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">보안 서비스 제공</th>
+            <td></td>
+            <td></td>
+            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
 
 
-
-
+    
+  </body>
+</html>
 {% endblock %}

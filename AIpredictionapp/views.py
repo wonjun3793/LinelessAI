@@ -9,6 +9,7 @@ from django.db import models
 from django.contrib.auth.models import User 
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
 from sklearn.preprocessing import MinMaxScaler
 from io import BytesIO
 from datetime import timedelta
@@ -21,7 +22,10 @@ from tqdm import tqdm
 from AIpredictionapp.modelsin.model import Informer
 from . import forms
 from django.views.generic import CreateView, UpdateView
-       
+from django.core.files.storage import FileSystemStorage
+from .models import Forecasting
+
+matplotlib.rcParams['axes.unicode_minus'] =False
 
 class StandardScaler():
     def __init__(self):
@@ -135,16 +139,22 @@ class Dataset_Pred(Dataset):
 
 def AIservice(request):
     
+    forecasting = Forecasting.objects.all()
+    
     global attributeid, name, file_directory, device, pred_len, label_len, model
 
     if request.method == "POST":
         uploaded_file = request.FILES['document']
-        attributeid = request.POST.get('attributeid')
+        selected_items = request.POST.get('items')
+        selected_categories = request.POST.get('categories')
+        selected_predictionlen = request.POST.get('predictionlen')
+        
         if uploaded_file.name.endswith('.csv'):
-            default_storage.save('Data_set/'+uploaded_file.name, uploaded_file )
             name = uploaded_file.name 
             d = os.getcwd()
             file_directory = d+'/media/Data_set/'+name
+            default_storage.save(file_directory, uploaded_file)
+            saving_file_directory = d+'/media/AIprediction_graph/'+name
 
             readfile(file_directory)
             
@@ -153,18 +163,28 @@ def AIservice(request):
             # data = data.drop(data.columns[[2,3]], axis=1)
             data = data[0:total_data]
             
-            data["date"] = data["집계일시"]
-            data["date"] = data["date"].astype(str)
-            data["date"] = pd.to_datetime(data["date"].str.slice(start=0, stop=4) + "/" + data["date"].str.slice(start=4, stop=6) + "/" +data["date"].str.slice(start=6, stop=8) + "/" + data["date"].str.slice(start=8, stop=10) + ":0")
-            data["value"] = data["평균속도"]
+            colunm_title = data.columns.values.tolist()
+            first_colunm = colunm_title[0]
+            second_colunm = colunm_title[1]
+            
+            if 'date' and 'value' not in colunm_title:
+                data["date"] = data["집계일시"]
+                data["date"] = data["date"].astype(str)
+                data["date"] = pd.to_datetime(data["date"].str.slice(start=0, stop=4) + "/" + data["date"].str.slice(start=4, stop=6) + "/" +data["date"].str.slice(start=6, stop=8) + "/" + data["date"].str.slice(start=8, stop=10) + ":0")
+                data["value"] = data["평균속도"]
 
-            min_max_scaler = MinMaxScaler()
-            data["value"] = min_max_scaler.fit_transform(data["value"].to_numpy().reshape(-1,1)).reshape(-1)
-            data = data[["date", "value"]]
+                min_max_scaler = MinMaxScaler()
+                data["value"] = min_max_scaler.fit_transform(data["value"].to_numpy().reshape(-1,1)).reshape(-1)
+                data = data[["date", "value"]]
+            else: 
+                pass 
+            
 
             data_train = data[:-24*7].copy()
 
-            pred_len = 24*7
+            #pred_len = 24*7
+            selected_predictionlen = int(selected_predictionlen.strip('일'))
+            pred_len = 24 * selected_predictionlen
 
             seq_len = pred_len#인풋 크기
             label_len = pred_len#디코더에서 참고할 크기
@@ -190,7 +210,7 @@ def AIservice(request):
             model_optim = optim.Adam(model.parameters(), lr=learning_rate)
 
             with torch.autograd.set_detect_anomaly(True):           
-                train_epochs = 100
+                train_epochs = 1
                 model.train()
                 progress = tqdm(range(train_epochs))
                 for epoch in progress:
@@ -275,13 +295,13 @@ def AIservice(request):
             def get_plot(x,y,a,b):
                 plt.switch_backend('AGG')
                 plt.figure(figsize=(7,5))
-                plt.title('Lineless_Informer_model')
+                #plt.title('Lineless')
                 plt.xlabel('Date')
                 plt.ylabel('Quantity')
                 plt.xlim([total_data-1-pred_len, total_data-1])
                 plt.plot(x,y, label="real", color = 'b')
                 plt.plot(a,b, label="prediction", color = 'r')
-                plt.legend()
+                plt.legend(fontsize=12, loc='upper right')
                 graph = get_graph()
                 return graph 
             
@@ -291,28 +311,14 @@ def AIservice(request):
             a = range(total_data-pred_len, total_data)
             b = result
             chart = get_plot(x,y,a,b)
-            
-            # plt.figure(figsize=(7,5), facecolor='r')
-            # plt.plot(range(total_data-pred_len, total_data),real[total_data-pred_len:], label="real", color ='b')
-            # plt.plot(range(total_data-pred_len, total_data),result, label="prediction", color = 'r')
-            # plt.title('Lineless_Informer_model')
-            # plt.xlim([total_data-1-pred_len, total_data-1])
-            # plt.legend()
-            # plt.savefig('/LinelessAI/mysite/media/AIprediction_graph/'+name.replace("csv", "png").strip(), bbox_inches='tight', facecolor='r', dpi=200)
-            # plt.show()
 
-            # def MAPEval(y_pred, y_true):
-            #     return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
-
-            # MAPEval(result, real[-pred_len:])
-
-            
-            # return redirect('AIpredictionapp:Dataresults', {'chart':chart})
             return render(request,'AIpredictionapp/Dataresult.html', {'chart':chart})
         else:
             messages.warning(request, 'CSV파일이 업로드 되지 않았습니다. CSV파일로 업로드 해주시기 바랍니다.')
+        
 
-    return render(request, 'AIpredictionapp/AIservice.html')
+    return render(request, 'AIpredictionapp/AIservice.html', {'forecasting': forecasting})
+
 
 def readfile(filename):
 
@@ -336,3 +342,7 @@ def Dataresults(request):
     messages.warning(request, message)
 
     return render(request, 'AIpredictionapp/Dataresult.html')
+
+
+def predictionlist(request):
+    return render(request, 'AIpredictionapp/Predictionlist.html')

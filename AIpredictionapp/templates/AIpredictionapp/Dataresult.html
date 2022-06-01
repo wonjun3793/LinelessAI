@@ -3,9 +3,21 @@
 {% block content %}
 
     {% if chart %}
+        <h1>
+            {{ predictionlen }}
+        </h1>
         <p style="text-align: center;">
             <img src="data:image/png;base64, {{chart|safe}}">
         </p>
+        <!-- <div style="text-align: center;">
+            <button type="button" class="btn btn-outline-success btn-lg">저장하기</button>
+        </div> -->
+        <form method="POST" action="URL" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div style="text-align: center;">
+                <button type="submit" name="saving" class="btn btn-outline-success btn-lg" id="file">저장하기</button>
+            </div>
+        </form>
     {% endif %}
 
 {% block messages %}

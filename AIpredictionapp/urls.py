@@ -8,4 +8,6 @@ app_name = "AIpredictionapp"
 urlpatterns = [
     path('AIservice/', AIpredictionapp.views.AIservice, name='AIservice'),
     path('Dataresults/', AIpredictionapp.views.AIservice, name='Dataresults'),
+    path('predictionlists/', AIpredictionapp.views.predictionlist, name='predictionlist'),
+
 ] 

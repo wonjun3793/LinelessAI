@@ -12,3 +12,8 @@ class Forecasting(models.Model):
     item = models.CharField(max_length = 50)
     forecastinglen = models.CharField(max_length=10, choices=Date_Choices)
     
+    def __str__(self):
+        return f'{self.item}[예측일: {self.forecastinglen}]'
+    
+
+

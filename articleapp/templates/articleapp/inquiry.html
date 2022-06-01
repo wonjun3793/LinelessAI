@@ -2,11 +2,33 @@
 
 {% block content %}
 
-<h>
-    문의
-</h>
-
-
+<div style="text-align: center; max-width: 500px; margin: 4rem auto">
+    {% if submitted %}
+    <h2>
+        문의 신청을 완료됐습니다!
+    </h2>
+    <p>&nbsp;</p>
+    <a href="{% url 'articleapp:list' %}">
+        <button style='margin-top:1.1%' type="button" class="btn btn-outline-secondary btn-lg">&nbsp; &nbsp;홈으로 돌아가기&nbsp; &nbsp;</button>
+    </a>
+    <p>&nbsp;</p>
+    {% else %}
+    <div>
+        <h4>
+            <strong>지금 바로 무료 상담을 받아보세요!</strong>
+        </h4>
+        <p style="text-align: left;">
+            부담없이 상담을 신청해주세요! 
+            상담 신청시 상담원이 친철하게 매장별 맞춤 상담을 해드립니다.   
+        </p>
+    </div>
+        <form action="" method=POST>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="문의하기" class="btn btn-secondary">
+        </form>
+    {% endif %}
+</div>
 
 
 {% endblock %}

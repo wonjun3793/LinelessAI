@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<html lang="en">
+  <body class="bg-light">
+    
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <h2>Checkout form</h2>
+      <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Your cart</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Basic Plan</h6>
+              <small class="text-muted">스마트 무인PX 패키지</small>
+            </div>
+            <span class="text-muted">₩150,000/mo</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+            </div>
+            <span class="text-success">−₩150,000</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (KRW)</span>
+            <strong>₩0</strong>
+          </li>
+        </ul>
+
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code">
+            <button type="submit" class="btn btn-secondary">할인</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">카드 청구서 주소</h4>
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">성</label>
+              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                성을 적어주세요!
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">이름</label>
+              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                이름을 적어주세요!
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+              <div class="invalid-feedback">
+                옳바른 이메일을 적어주세요!
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address" class="form-label">주소</label>
+              <input type="text" class="form-control" id="address" placeholder="도로명 주소" required>
+              <div class="invalid-feedback">
+                옳바른 주소를 적어주세요!
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address2" class="form-label">상세주소<span class="text-muted">(Optional)</span></label>
+              <input type="text" class="form-control" id="address2" placeholder="동/호">
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+            
+          <h4 class="mb-3">상품 선택</h4>
+            
+          <select class="custom-select" aria-label="Default select example">
+            <option selected>원하는 플랜을 골라주세요!</option>
+            <option value="1">Basic (₩150,000)</option>
+            <option value="2">Pro (₩300,000)</option>
+            <option value="3">Enterprise (₩400,000)</option>
+          </select>
+            
+          <hr class="my-4">
+
+          <h4 class="mb-3">결제</h4>
+
+          <div class="my-3">
+            <div class="form-check">
+              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+              <label class="form-check-label" for="credit">신용카드</label>
+            </div>
+            <div class="form-check">
+              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+              <label class="form-check-label" for="debit">체크카드</label>
+            </div>
+          </div>
+
+          <div class="row gy-3">
+            <div class="col-md-6">
+              <label for="cc-name" class="form-label">카드사 이름</label>
+              <input type="text" class="form-control" id="cc-name" placeholder="MasterCard" required>
+              <small class="text-muted">정확한 카드사 이름을 적어주세요!</small>
+              <div class="invalid-feedback">
+                옳바른 카드사 이름을 입력해주세요!
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="cc-number" class="form-label">카드 번호</label>
+              <input type="text" class="form-control" id="cc-number" placeholder="xxxx-xxxx-xxxx-1234" required>
+              <div class="invalid-feedback">
+                옳바른 카드 번호를 입력해주세요!
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="cc-expiration" class="form-label">만료일</label>
+              <input type="text" class="form-control" id="cc-expiration" placeholder="xx/22" required>
+              <div class="invalid-feedback">
+                옳바른 카드 만료일을 입력해주세요!
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="cc-cvv" class="form-label">CVV</label>
+              <input type="text" class="form-control" id="cc-cvv" placeholder="123" required>
+              <div class="invalid-feedback">
+                옳바른 CVV 숫자를 입력해주세요!
+              </div>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">결제 계속 진행하기</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+      <script src="form-validation.js"></script>
+  </body>
+</html>
+
+
+
+
+
+{% endblock %}

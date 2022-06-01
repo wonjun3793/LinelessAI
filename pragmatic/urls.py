@@ -24,9 +24,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='articleapp/list.html'), name ='lists'),
     path('accounts/', include('accountapp.urls')),
+    path('accounts/', include('allauth.urls')),
     path('profiles/', include('profileapp.urls')),
     path('articles/', include('articleapp.urls')),
     path('questions/', include('questionapp.urls')),
     path('AIpredictions/', include('AIpredictionapp.urls')),
+    
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

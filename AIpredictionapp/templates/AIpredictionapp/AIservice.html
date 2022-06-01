@@ -1,25 +1,59 @@
 {% extends 'base.html' %}
-
+{% load bootstrap4 %}
 {% block content %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 
 
-<div class="container card">
+<div class="container">
     <div class="row justify-content-center container">
         <div class="content">
             <h2>수요예측 서비스를 이용하시려면 PX판매 데이터를 업로드 해주세요!</h2>
+            <div>
                 <form method="POST" enctype="multipart/form-data">
+                    <div class="my-3">
+                        <label>예측 일수</label>
+                        <select style="width:250px;" name= "predictionlen" class="form-control">
+                          <option selected>예측 일수</option>
+                          <option>1일</option>
+                          <option>2일</option>
+                          <option>3일</option>
+                          <option>4일</option>
+                          <option>5일</option>
+                          <option>6일</option>
+                          <option>7일</option>
+                        </select>
+                    </div>
+                    <div class="my-3">
+                        <label>상품 카테고리</label>
+                        <select style="width:250px;" name = "categories" class="form-control">
+                          <option selected>카테고리</option>
+                          <option>과자</option>
+                          <option>냉동식품</option>
+                          <option>아이스크림</option>
+                          <option>음료수</option>
+                          <option>빵</option>
+                          <option>라면</option>
+                        </select>
+                    </div>
+                    <div class="form-group; my-3">
+                      <label>상품명</label>
+                      <input type="text" class="form-control" name="items" placeholder="정확한 상품명을 적어주세요!">
+                    </div>
                     {% csrf_token %} 
-                    <div class="row content">
-                        <div class="col"> 
+                    <div class="row content; my-4">
+                        <div class="col">
                             <input type="file" name="document" id="document" required="required">
                             <button id="submit" class ="btn btn-outline-primary">업로드</button>
                         </div>
                     </div>
                 </form>
-            <div>
-                {{ object.get_forecastinglen_display }}
             </div>
+            <p>&nbsp;</p>
+            <!--
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+            </div>
+            -->
         </div>  
     </div>
     

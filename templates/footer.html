@@ -1,13 +1,16 @@
+
 <div class = "pragmatic_footer">
     <div class = "pragmatic_footer_button">
-        <span>회사소개</span> |
-        <span>서비스 이용약관</span> |
-        <span>서비스 소개</span> |
-        <span>공지사항</span>
+        <a href="{% url 'articleapp:companyinfo' %}" class="pragmatic_header_nav">회사소개</a>
+        <a href="{% url 'articleapp:terms' %}" class="pragmatic_header_nav">서비스 이용약관</a>
+        <a href="{% url 'articleapp:otherinfo' %}" class="pragmatic_header_nav">공지사항</a>
+        <a href="{% url 'articleapp:teaminfo' %}" class="pragmatic_header_nav">팀소개</a>
     </div>
-    <div style="margin-top: 1rem">
+    <div class="my-3">
         <h6 class="pragmatic_logo">
-            Lineless
+            <a href="{% url 'articleapp:list' %}" class="pragmatic_header_nav">
+                Lineless
+            </a>
         </h6>
     </div>
 </div>
